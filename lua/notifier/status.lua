@@ -266,6 +266,7 @@ function StatusModule._ensure_valid(msg)
 
    if msg.title and displayw(msg.title) == 0 then
       msg.title = nil
+      return false
    end
 
    if msg.title and string.find(msg.title, "\n") then

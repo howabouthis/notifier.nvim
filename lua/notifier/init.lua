@@ -13,7 +13,7 @@ local function notify(msg, level, opts, no_cache)
    level = level or vim.log.levels.INFO
    opts = opts or {}
 
-   if not config.config.ignore_titles[opts.title] then
+   if opts.title and config.config.ignore_title and not config.config.ignore_titles[opts.title] then
      if level >= config.config.notify.min_level then
         status.push("nvim", { mandat = msg, title = opts.title, icon = opts.icon })
         if not no_cache then
